@@ -14,10 +14,24 @@ const UserSchema = new Schema(
             unique: true,
             validate: [isEmail, 'invalid email']
         },
-        thoughts: [],
-        friends: []
+        thoughts: [
+            {
+                type: Schema.Types.ObjectId,
+                ref: 'Thought'
+            }
+        ],
+        friends: [
+            {
+                type: Schema.Types.ObjectId,
+                ref: self
+            }
+        ]
     }
 );
+
+UserSchema.virtual('friendCount').get(function () {
+    return this.friends.length;
+})
 
 const User = model('User', UserSchema);
 
