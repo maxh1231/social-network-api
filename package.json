@@ -19,6 +19,7 @@
   "homepage": "https://github.com/maxh1231/social-network-api#readme",
   "dependencies": {
     "express": "^4.17.2",
-    "mongoose": "^6.1.6"
+    "mongoose": "^6.1.6",
+    "validator": "^13.7.0"
   }
 }
