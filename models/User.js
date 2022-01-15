@@ -12,7 +12,7 @@ const UserSchema = new Schema(
             type: String,
             required: true,
             unique: true,
-            validate: [isEmail, 'invalid email']
+            validate: [validator.isEmail, 'invalid email']
         },
         thoughts: [
             {
@@ -23,7 +23,7 @@ const UserSchema = new Schema(
         friends: [
             {
                 type: Schema.Types.ObjectId,
-                ref: self
+                ref: 'User'
             }
         ]
     }
