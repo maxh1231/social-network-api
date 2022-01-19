@@ -17,6 +17,20 @@ const thoughtController = {
             })
     },
 
+    getThoughtById({ params }, res) {
+        Thought.findOne({ _id: params.id })
+            .populate({
+                path: 'thoughts',
+                select: '-__v'
+            })
+            .select('-__V')
+            .then(dbThoughtData => res.json(dbThoughtData))
+            .catch(err => {
+                console.log(err)
+                res.sendStatus(400);
+            });
+    }
+
 }
 
 module.exports = thoughtController;
