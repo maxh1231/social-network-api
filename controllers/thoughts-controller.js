@@ -68,6 +68,16 @@ const thoughtController = {
                 res.json(dbPizzaData);
             })
             .catch(err => res.json(err));
+    },
+
+    deleteReaction({ params }, res) {
+        Thought.findOneAndUpdate(
+            { _id: params.id },
+            { $pull: { reactions: { reactionId: params.reactionId } } },
+            { new: true }
+        )
+            .then(dbThoughtData => res.json(dbThoughtData))
+            .catch(err => res.json(err));
     }
 
 }
