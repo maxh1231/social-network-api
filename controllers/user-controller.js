@@ -57,6 +57,16 @@ const userController = {
             { new: true, runValidators: true }
         )
     },
+
+    deleteFriend({ params }, res) {
+        User.findOneAndUpdate(
+            { _id: params.id },
+            { $pull: { friends: params.friendId } },
+            { new: true }
+        )
+            .then(dbUserData => res.json(dbUserData))
+            .catch(err => res.json(err));
+    }
 };
 
 
