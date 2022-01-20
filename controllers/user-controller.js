@@ -49,6 +49,15 @@ const userController = {
             .catch(err => res.json(err));
     },
 
+    // add friend to user's friendlist
+    addFriend({ params }, res) {
+        User.findOneAndUpdate(
+            { _id: params.id },
+            { $push: { friends: params.friendId } },
+            { new: true, runValidators: true }
+        )
+    },
 };
+
 
 module.exports = userController;
