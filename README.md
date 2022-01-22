@@ -17,6 +17,7 @@
   You can reach me at maxhumpherys@gmail.com or on [GitHub](https://github.com/maxh1231)
 
   ## Video Walkthrough
+  [Youtube](https://youtu.be/TWUh_MRKGcU)
 
   ## License
   
